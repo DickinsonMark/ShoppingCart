@@ -1,0 +1,74 @@
+<div class="row">
+  <div input-field class="col s3">
+    <label for="category">Search by Category</label>
+      <select id="category" class="browser-default" ng-model="select.categories" material-select watch>
+          <option value="">None</option>
+          <optgroup label="-----------------"></optgroup>
+          <option ng-repeat="category in mainCtrl.categories">{{category}}</option>
+      </select>
+  </div>
+  <div input-field class="col s3 offset-s1">
+    <label for="name">Search by Name</label>
+    <input id="name" type="text" ng-model="select.name">
+  </div>
+  <div class="col s3 offset-s1 right">
+    <div class="card-panel teal">
+      <span class="white-text">
+        <ul>
+          <li ng-repeat="item in mainCtrl.cart">{{item.item.name}}   <span class="right">{{item.quantity}}</span></li>
+        </ul>
+        <a class="btn wave-effect" ng-click="mainCtrl.checkout()">Checkout</a>
+      </span>
+    </div>
+  </div>
+</div>
+
+<table class="bordered">
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>Information</th>
+      <th>
+          <label for="sort">Sort by Price:</label>
+          <select id="sort" class="browser-default" ng-model="reverse">
+            <option>Highest first</option>
+            <option value="">Lowest first</option>
+          </select>
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr ng-repeat="item in mainCtrl.inventory | orderBy : 'price' : reverse | filter : select">
+      <td><img ng-src="{{item.imageUrl}}"></td>
+      <td>
+        <p>
+          <strong>Name: </strong>{{item.name}}<br>
+          <strong>Price: </strong> {{item.price | makeMoney | currency}}<br>
+          <ul class="browser-default">
+            <strong>ingredients: </strong>
+            <li class="actual-list" ng-repeat="ingredients in item.ingredients | makeArray">{{ingredients}}</li>
+          </ul>
+          <strong>Caffine: </strong>{{item.caffeineScale}}<br>
+          <strong>Rating: </strong>{{item.rating}}<br>
+          <strong>In Stock: </strong>{{item.inStock | yesOrNo}}<br>
+          <ul class="browser-default">
+            <strong>categories: </strong>
+            <li class="actual-list" ng-repeat="category in item.categories">{{category}}</li>
+          </ul>
+        </p>
+      </td>
+      <td>
+        <div input-field>
+          <label for="quantity"><h5><strong>Quantity:</strong></h5></label>
+          <select id="quantity" class="browser-default" ng-model="quantity" material-select>
+              <option ng-repeat="num in [2, 3, 4, 5, 6, 7, 8, 9, 10]">{{num}}</option>
+          </select>
+        </div>
+        <div input-field>
+          <button ng-click="mainCtrl.addToCart(item, quantity)" type="button" name="addToCart">Add To Cart</button>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
