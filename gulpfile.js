@@ -11,14 +11,14 @@ const runSequence = require('run-sequence');
 
 gulp.task('connect', () => {
   connect.server({
-    root: './src/',
+    root: './',
     port: 8880,
     livereload: true
   });
 });
 
 gulp.task('html', () => {
-  gulp.src('./src/*.html')
+  gulp.src('./*.html')
     .pipe(connect.reload());
 });
 
