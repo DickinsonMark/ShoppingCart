@@ -12,7 +12,7 @@ const runSequence = require('run-sequence');
 gulp.task('connect', () => {
   connect.server({
     root: './src/',
-    port: 8888,
+    port: 8880,
     livereload: true
   });
 });

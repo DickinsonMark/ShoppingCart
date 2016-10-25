@@ -11,3 +11,8 @@ img {
 .actual-list {
   list-style: disc inside;
 }
+
+.quantity {
+  font-size: 1.5rem;
+  margin: 5px;
+}

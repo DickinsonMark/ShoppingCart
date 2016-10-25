@@ -9,7 +9,8 @@
       'shoppingCartApp.service.inventory',
       'shoppingCartApp.service.cart',
       'shoppingCartApp.config',
-      'shoppingCartApp.components.main'
+      'shoppingCartApp.components.main',
+      'shoppingCartApp.components.checkout'
     ]);
 
 })();

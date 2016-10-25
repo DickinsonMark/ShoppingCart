@@ -17,7 +17,16 @@
         <ul>
           <li ng-repeat="item in mainCtrl.cart">{{item.item.name}}   <span class="right">{{item.quantity}}</span></li>
         </ul>
-        <a class="btn wave-effect" ng-click="mainCtrl.checkout()">Checkout</a>
+        <div>
+          Subtotal:<span class="right">{{mainCtrl.subtotal | currency}}</span>
+        </div>
+        <div>
+          Tax:<span class="right">{{mainCtrl.tax | currency}}</span>
+        </div>
+        <div>
+          Total:<span class="right">{{mainCtrl.total | currency}}</span>
+        </div>
+        <a class="btn wave-effect" href="/#/checkout">Checkout</a>
       </span>
     </div>
   </div>

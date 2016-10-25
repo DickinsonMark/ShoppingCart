@@ -7,8 +7,8 @@
   function yesOrNo() {
     return function(input) {
       var result = '';
-      input ? result = 'Yes' : result = 'No';
+      result = input ? 'Yes' : 'No';
       return result;
-    }
+    };
   }
 }());

@@ -5,7 +5,11 @@
   .service('cartService', [CartService]);
 
   function CartService() {
-    const vm = this;
-    vm.cart = [];
+    const self = this;
+    self.cart = [];
+    self.subtotal = 0;
+    self.tax = 0;
+    self.total = 0;
+
   }
 }());
