@@ -31,7 +31,7 @@
       cartService.subtotal -= (price * item.quantity);
       cartService.tax = (cartService.subtotal * 0.0816);
       cartService.total = cartService.subtotal + cartService.tax;
-      const quantity = item.quantity
+      const quantity = item.quantity;
       const itemIndex = cartService.cart.findIndex(curr => curr.item._id === item.item._id);
       cartService.cart.splice(itemIndex, 1);
       vm.cart = getInfo('cart');
